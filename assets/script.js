@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', updateCurrentDate);
 function setRowColorBasedOnTime() {
   const currentHour = new Date().getHours();
 
-  // Loop through each row
+  
   $('.time-block').each(function () {
       const rowHour = parseInt($(this).attr('id').split('-')[1]);
 
@@ -53,7 +53,7 @@ function setRowColorBasedOnTime() {
   });
 }
 
-// Call the setRowColorBasedOnTime function when the DOM is ready
+
 $(function () {
   setRowColorBasedOnTime();
 });
