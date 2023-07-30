@@ -22,38 +22,40 @@
   // TODO: Add code to display the current date in the header of the page.
 // });
 
-function getFormattedDate() {
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  const today = new Date();
-  return today.toLocaleDateString(undefined, options);
+// Display current date function
+function displayCurrentDate() {
+  const currentDayElement = $('#currentDay');
+  const currentDate = dayjs().format('dddd: MMMM D, YYYY');
+  currentDayElement.text(`${currentDate}`);
 }
-
-function updateCurrentDate() {
-  const currentDayElement = document.getElementById('currentDay');
-  const formattedDate = getFormattedDate();
-  currentDayElement.textContent = `${formattedDate}`;
-}
-
-document.addEventListener('DOMContentLoaded', updateCurrentDate);
-
-function setRowColorBasedOnTime() {
-  const currentHour = new Date().getHours();
-
-  
-  $('.time-block').each(function () {
-      const rowHour = parseInt($(this).attr('id').split('-')[1]);
-
-      if (rowHour < currentHour) {
-          $(this).addClass('past').removeClass('present future');
-      } else if (rowHour === currentHour) {
-          $(this).addClass('present').removeClass('past future');
-      } else {
-          $(this).addClass('future').removeClass('past present');
-      }
-  });
-}
-
 
 $(function () {
-  setRowColorBasedOnTime();
+  displayCurrentDate();
 });
+
+
+
+// //COLORS OF ROWS
+// function setRowColorBasedOnTime() {
+//   const currentHour = new Date().getHours();
+
+  
+//   $('.time-block').each(function () {
+//       const rowHour = parseInt($(this).attr('id').split('-')[1]);
+
+//       if (rowHour < currentHour) {
+//           $(this).addClass('past').removeClass('present future');
+//       } else if (rowHour === currentHour) {
+//           $(this).addClass('present').removeClass('past future');
+//       } else {
+//           $(this).addClass('future').removeClass('past present');
+//       }
+//   });
+// }
+
+
+// $(function () {
+//   setRowColorBasedOnTime();
+// });
+
+
