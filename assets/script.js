@@ -1,4 +1,3 @@
-// Display current date function
 $(function () {
   displayCurrentDate();
 });
