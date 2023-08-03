@@ -1,3 +1,4 @@
+// Function to display current date 
 $(function () {
   displayCurrentDate();
 });
@@ -8,7 +9,7 @@ function displayCurrentDate() {
   currentDayElement.text(`${currentDate}`);
 }
 
-//COLORS OF ROWS
+// Colors of rows (based on time)
 $(function () {
   setRowColorBasedOnTime();
 });
@@ -16,7 +17,6 @@ $(function () {
 function setRowColorBasedOnTime() {
   const currentHour = new Date().getHours();
 
-  
   $('.time-block').each(function () {
       const rowHour = parseInt($(this).attr('id').split('-')[1]);
 
@@ -46,16 +46,10 @@ function loadEventsFromLocalStorage() {
   });
 }
 
-// Call the displayCurrentDate and loadEventsFromLocalStorage functions when the DOM is ready
-$(function () {
-  displayCurrentDate();
-  loadEventsFromLocalStorage();
-
-  // Save Function
+// Save Function
   $('.saveBtn').on('click', function () {
       const eventRow = $(this).closest('.time-block');
       const eventId = eventRow.attr('id');
       const eventDescription = eventRow.find('textarea').val();
       saveEventToLocalStorage(eventId, eventDescription);
   });
-});
